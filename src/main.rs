@@ -21,12 +21,22 @@ fn main() {
     }
 }
 
-fn fibonacci(n: u32) -> u32 {
+fn fibonacci(n: u32) -> u64 {
+    let mut n = n;
     if n == 0 {
         0
     } else if n == 1 {
         1
     } else {
-        fibonacci(n - 1) + fibonacci(n - 2)
+        let mut n1 = 0;
+        let mut n2 = 1;
+        let mut n3 = 1;
+        while n >= 2 {
+            n = n - 1;
+            n3 = n2 + n1;
+            n1 = n2;
+            n2 = n3;
+        }
+        n3
     }
 }
